@@ -6,10 +6,10 @@ import { deleteEducation } from "../../actions/profile";
 
 const Education = ({ education, deleteEducation }) => {
   const educations = education.map((edu) => (
-    <tr key={edu._id}>
-      <td>{edu.school}</td>
-      <td className="hide-sm">{edu.degree}</td>
-      <td>
+    <tr key={edu._id} className="border-b border-[#ccc]">
+      <td className="p-4 text-left">{edu.school}</td>
+      <td className="p-4 text-left hidden sm:table-cell">{edu.degree}</td>
+      <td className="p-4 text-left">
         <Moment format="YYYY/MM/DD">{edu.from}</Moment> -{" "}
         {edu.to === null ? (
           " Now"
@@ -17,10 +17,10 @@ const Education = ({ education, deleteEducation }) => {
           <Moment format="YYYY/MM/DD">{edu.to}</Moment>
         )}
       </td>
-      <td>
+      <td className="p-4 text-left">
         <button
           onClick={() => deleteEducation(edu._id)}
-          className="btn btn-danger"
+          className="inline-block bg-danger text-white py-2 px-6 text-base border-none cursor-pointer transition-opacity duration-200 ease-in outline-none hover:opacity-80"
         >
           Delete
         </button>
@@ -30,13 +30,13 @@ const Education = ({ education, deleteEducation }) => {
 
   return (
     <Fragment>
-      <h2 className="my-2">Education Credentials</h2>
-      <table className="table">
+      <h2 className="my-8 text-2xl font-bold">Education Credentials</h2>
+      <table className="w-full">
         <thead>
-          <tr>
-            <th>School</th>
-            <th className="hide-sm">Degree</th>
-            <th className="hide-sm">Years</th>
+          <tr className="bg-light">
+            <th className="p-4 text-left">School</th>
+            <th className="p-4 text-left hidden sm:table-cell">Degree</th>
+            <th className="p-4 text-left hidden sm:table-cell">Years</th>
             <th />
           </tr>
         </thead>

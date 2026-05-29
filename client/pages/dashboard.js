@@ -18,7 +18,7 @@ const DashboardPage = ({ auth: { isAuthenticated, loading } }) => {
   return (
     <React.Fragment>
       <Navbar />
-      <section className="container">
+      <section className="max-w-[1100px] mx-auto overflow-hidden px-8 mt-[6rem] mb-[3rem]">
         <DashboardComponent />
       </section>
     </React.Fragment>

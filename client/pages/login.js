@@ -32,23 +32,24 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <React.Fragment>
       <Navbar />
-      <section className="container">
-        <h1 className="large text-primary">Sign in</h1>
-        <p className="lead">
+      <section className="max-w-[1100px] mx-auto overflow-hidden px-8 mt-[6rem] mb-[3rem]">
+        <h1 className="text-5xl leading-tight mb-4 text-primary font-bold">Sign in</h1>
+        <p className="text-2xl mb-4">
           <i className="fas fa-user"></i> Sign into Your Account
         </p>
-        <form className="form" onSubmit={(e) => onSubmit(e)}>
-          <div className="form-group">
+        <form className="my-4" onSubmit={(e) => onSubmit(e)}>
+          <div className="my-[1.2rem] w-[70%]">
             <input
               type="email"
               placeholder="Email Address"
               name="email"
               value={email}
               onChange={(e) => onChange(e)}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc]"
               required
             />
           </div>
-          <div className="form-group">
+          <div className="my-[1.2rem] w-[70%]">
             <input
               type="password"
               placeholder="Password"
@@ -56,16 +57,21 @@ const Login = ({ login, isAuthenticated }) => {
               minLength="6"
               value={password}
               onChange={(e) => onChange(e)}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc]"
               required
             />
           </div>
 
-          <input type="submit" className="btn btn-primary" value="Login" />
+          <input
+            type="submit"
+            className="inline-block bg-primary text-white py-2 px-6 text-base border-none cursor-pointer transition-opacity duration-200 ease-in outline-none hover:opacity-80"
+            value="Login"
+          />
         </form>
-        <p className="my-1">
+        <p className="my-4">
           Create an account?{" "}
           <Link href="/register">
-            <a>Sign Up</a>
+            <a className="text-primary">Sign Up</a>
           </Link>
         </p>
       </section>

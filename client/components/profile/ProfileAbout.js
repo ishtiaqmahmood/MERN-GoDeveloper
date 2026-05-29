@@ -8,18 +8,20 @@ const ProfileAbout = ({
     user: { name },
   },
 }) => (
-  <div className="profile-about bg-light p-2">
+  <div className="profile-about grid-area-about text-center bg-light p-8">
     {bio && (
       <Fragment>
-        <h2 className="text-primary">{name.split(" ")[0]}&apos;s Bio</h2>
-        <p>{bio}</p>
-        <div className="line"></div>
+        <h2 className="text-primary text-2xl font-bold">
+          {name.split(" ")[0]}&apos;s Bio
+        </h2>
+        <p className="my-4">{bio}</p>
+        <div className="h-[1px] bg-[#ccc] my-6"></div>
       </Fragment>
     )}
-    <h2 className="text-primary">Skill Set</h2>
-    <div className="skills">
+    <h2 className="text-primary text-2xl font-bold">Skill Set</h2>
+    <div className="flex items-center justify-center text-center flex-wrap">
       {skills.map((skill, index) => (
-        <div key={index} className="p-1">
+        <div key={index} className="p-4">
           <i className="fas fa-check"></i> {skill}
         </div>
       ))}

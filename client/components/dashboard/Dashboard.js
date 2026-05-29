@@ -22,8 +22,10 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
-      <p className="lead">
+      <h1 className="text-5xl leading-tight mb-4 text-primary font-bold">
+        Dashboard
+      </h1>
+      <p className="text-2xl mb-4">
         <i className="fas fa-user"></i> Welcome {user && user.name}
       </p>
       {profile !== null ? (
@@ -32,8 +34,11 @@ const Dashboard = ({
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
 
-          <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
+          <div className="my-8">
+            <button
+              className="inline-block bg-danger text-white py-2 px-6 text-base border-none cursor-pointer mr-2 transition-opacity duration-200 ease-in outline-none hover:opacity-80"
+              onClick={() => deleteAccount()}
+            >
               <i className="fas fa-user-minus"></i>
               Delete My Account
             </button>
@@ -43,7 +48,9 @@ const Dashboard = ({
         <Fragment>
           <p>You have not yet setup a profile, please add some info</p>
           <Link href="/create-profile">
-            <a className="btn btn-primary my-1">Create Profile</a>
+            <a className="inline-block bg-primary text-white py-2 px-6 text-base border-none cursor-pointer mr-2 transition-opacity duration-200 ease-in outline-none hover:opacity-80 my-4">
+              Create Profile
+            </a>
           </Link>
         </Fragment>
       )}

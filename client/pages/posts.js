@@ -15,17 +15,17 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
   return (
     <Fragment>
       <Navbar />
-      <section className="container">
+      <section className="max-w-[1100px] mx-auto overflow-hidden px-8 mt-[6rem] mb-[3rem]">
         {loading ? (
           <Spinner />
         ) : (
           <Fragment>
-            <h1 className="large text-primary">Posts</h1>
-            <p className="lead">
+            <h1 className="text-5xl leading-tight mb-4 text-primary font-bold">Posts</h1>
+            <p className="text-2xl mb-4">
               <i className="fas fa-user"></i> Welcome to the community
             </p>
             <PostForm />
-            <div className="posts">
+            <div>
               {posts.map((post) => (
                 <PostItem key={post._id} post={post} />
               ))}

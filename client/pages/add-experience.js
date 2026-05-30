@@ -28,59 +28,63 @@ const AddExperience = ({ addExperience }) => {
   return (
     <Fragment>
       <Navbar />
-      <section className="container">
-        <h1 className="large text-primary">Add An Experience</h1>
-        <p className="lead">
+      <section className="max-w-[1100px] mx-auto overflow-hidden px-8 mt-[6rem] mb-[3rem]">
+        <h1 className="text-5xl leading-tight mb-4 text-primary font-bold">Add An Experience</h1>
+        <p className="text-2xl mb-4">
           <i className="fas fa-code-branch"></i> Add any developer/programming
           positions that you have had in the past
         </p>
         <small>* = required field</small>
         <form
-          className="form"
+          className="my-4"
           onSubmit={(e) => {
             e.preventDefault();
             addExperience(formData, router);
           }}
         >
-          <div className="form-group">
+          <div className="my-[1.2rem] w-[70%]">
             <input
               type="text"
               placeholder="* Job Title"
               name="title"
               value={title}
               onChange={(e) => onChange(e)}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc]"
               required
             />
           </div>
-          <div className="form-group">
+          <div className="my-[1.2rem] w-[70%]">
             <input
               type="text"
               placeholder="* Company"
               name="company"
               value={company}
               onChange={(e) => onChange(e)}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc]"
               required
             />
           </div>
-          <div className="form-group">
+          <div className="my-[1.2rem] w-[70%]">
             <input
               type="text"
               placeholder="Location"
               name="location"
               value={location}
               onChange={(e) => onChange(e)}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc]"
             />
           </div>
-          <div className="form-group">
-            <h4>From Date</h4>
+          <div className="my-[1.2rem] w-[70%]">
+            <h4 className="font-bold">From Date</h4>
             <input
               type="date"
               name="from"
               value={from}
               onChange={(e) => onChange(e)}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc]"
             />
           </div>
-          <div className="form-group">
+          <div className="my-[1.2rem] w-[70%]">
             <p>
               <input
                 type="checkbox"
@@ -95,17 +99,18 @@ const AddExperience = ({ addExperience }) => {
               Current Job
             </p>
           </div>
-          <div className="form-group">
-            <h4>To Date</h4>
+          <div className="my-[1.2rem] w-[70%]">
+            <h4 className="font-bold">To Date</h4>
             <input
               type="date"
               name="to"
               value={to}
               onChange={(e) => onChange(e)}
               disabled={toDateDisabled ? "disabled" : ""}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc] disabled:bg-[#f4f4f4]"
             />
           </div>
-          <div className="form-group">
+          <div className="my-[1.2rem] w-[70%]">
             <textarea
               name="description"
               cols="30"
@@ -113,11 +118,17 @@ const AddExperience = ({ addExperience }) => {
               placeholder="Job Description"
               value={description}
               onChange={(e) => onChange(e)}
+              className="block w-full p-2 text-[1.2rem] border border-[#ccc]"
             ></textarea>
           </div>
-          <input type="submit" className="btn btn-primary my-1" />
+          <input
+            type="submit"
+            className="inline-block bg-primary text-white py-2 px-6 text-base border-none cursor-pointer mr-2 transition-opacity duration-200 ease-in outline-none hover:opacity-80 my-4"
+          />
           <Link href="/dashboard">
-            <a className="btn btn-light my-1">Go Back</a>
+            <a className="inline-block bg-light text-[#333] py-2 px-6 text-base border-none cursor-pointer transition-opacity duration-200 ease-in outline-none hover:opacity-80 my-4">
+              Go Back
+            </a>
           </Link>
         </form>
       </section>

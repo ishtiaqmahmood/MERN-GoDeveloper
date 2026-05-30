@@ -14,23 +14,23 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   return (
     <Fragment>
       <Navbar />
-      <section className="container">
+      <section className="max-w-[1100px] mx-auto overflow-hidden px-8 mt-[6rem] mb-[3rem]">
         {loading ? (
           <Spinner />
         ) : (
           <Fragment>
-            <h1 className="large text-primary">Developers</h1>
-            <p className="lead">
+            <h1 className="text-5xl leading-tight mb-4 text-primary font-bold">Developers</h1>
+            <p className="text-2xl mb-4">
               <i className="fab fa-connectdevelop"></i> Browse and connect with
               developers
             </p>
-            <div className="profiles">
+            <div>
               {profiles.length > 0 ? (
                 profiles.map((profile) => (
                   <ProfileItem key={profile._id} profile={profile} />
                 ))
               ) : (
-                <h4>No profiles found...</h4>
+                <h4 className="text-xl">No profiles found...</h4>
               )}
             </div>
           </Fragment>

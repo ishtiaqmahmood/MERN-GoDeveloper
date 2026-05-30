@@ -25,26 +25,34 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
   return (
     <Fragment>
       <Navbar />
-      <section className="container">
+      <section className="max-w-[1100px] mx-auto overflow-hidden px-8 mt-[6rem] mb-[3rem]">
         {profile === null || loading ? (
           <Spinner />
         ) : (
           <Fragment>
             <Link href="/profiles">
-              <a className="btn btn-light">Back To Profiles</a>
+              <a className="inline-block bg-light text-[#333] py-2 px-6 text-base border-none cursor-pointer transition-opacity duration-200 ease-in outline-none hover:opacity-80 mr-2">
+                Back To Profiles
+              </a>
             </Link>
             {auth.isAuthenticated &&
               auth.loading === false &&
               auth.user._id === profile.user._id && (
                 <Link href="/edit-profile">
-                  <a className="btn btn-dark">Edit Profile</a>
+                  <a className="inline-block bg-dark text-white py-2 px-6 text-base border-none cursor-pointer transition-opacity duration-200 ease-in outline-none hover:opacity-80">
+                    Edit Profile
+                  </a>
                 </Link>
               )}
-            <div className="profile-grid my-1">
-              <ProfileTop profile={profile} />
-              <ProfileAbout profile={profile} />
-              <div className="profile-exp bg-white p-2">
-                <h2 className="text-primary">Experience</h2>
+            <div className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-1">
+              <div className="col-span-2">
+                <ProfileTop profile={profile} />
+              </div>
+              <div className="col-span-2">
+                <ProfileAbout profile={profile} />
+              </div>
+              <div className="bg-white p-8 border border-[#ccc]">
+                <h2 className="text-primary text-2xl font-bold mb-4">Experience</h2>
                 {profile.experience.length > 0 ? (
                   <Fragment>
                     {profile.experience.map((experience) => (
@@ -55,12 +63,12 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
                     ))}
                   </Fragment>
                 ) : (
-                  <h4>No experience credentials</h4>
+                  <h4 className="text-xl">No experience credentials</h4>
                 )}
               </div>
 
-              <div className="profile-edu bg-white p-2">
-                <h2 className="text-primary">Education</h2>
+              <div className="bg-white p-8 border border-[#ccc]">
+                <h2 className="text-primary text-2xl font-bold mb-4">Education</h2>
                 {profile.education.length > 0 ? (
                   <Fragment>
                     {profile.education.map((education) => (
@@ -71,12 +79,14 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
                     ))}
                   </Fragment>
                 ) : (
-                  <h4>No education credentials</h4>
+                  <h4 className="text-xl">No education credentials</h4>
                 )}
               </div>
 
               {profile.githubusername && (
-                <ProfileGithub username={profile.githubusername} />
+                <div className="col-span-2">
+                  <ProfileGithub username={profile.githubusername} />
+                </div>
               )}
             </div>
           </Fragment>

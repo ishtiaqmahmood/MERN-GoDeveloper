@@ -23,17 +23,19 @@ const Post = ({ getPost, post: { post, loading } }) => {
   return (
     <Fragment>
       <Navbar />
-      <section className="container">
+      <section className="max-w-[1100px] mx-auto overflow-hidden px-8 mt-[6rem] mb-[3rem]">
         {loading || post === null ? (
           <Spinner />
         ) : (
           <Fragment>
             <Link href="/posts">
-              <a className="btn">Back To Posts</a>
+              <a className="inline-block bg-light text-[#333] py-2 px-6 text-base border-none cursor-pointer mr-2 transition-opacity duration-200 ease-in outline-none hover:opacity-80">
+                Back To Posts
+              </a>
             </Link>
             <PostItem post={post} showActions={false} />
             <CommentForm postId={post._id} />
-            <div className="comments">
+            <div>
               {post.comments.map((comment) => (
                 <CommentItem
                   key={comment._id}

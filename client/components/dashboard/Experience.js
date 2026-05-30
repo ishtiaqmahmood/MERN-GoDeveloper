@@ -6,10 +6,10 @@ import { deleteExperience } from "../../actions/profile";
 
 const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map((exp) => (
-    <tr key={exp._id}>
-      <td>{exp.company}</td>
-      <td className="hide-sm">{exp.title}</td>
-      <td>
+    <tr key={exp._id} className="border-b border-[#ccc]">
+      <td className="p-4 text-left">{exp.company}</td>
+      <td className="p-4 text-left hidden sm:table-cell">{exp.title}</td>
+      <td className="p-4 text-left">
         <Moment format="YYYY/MM/DD">{exp.from}</Moment> -{" "}
         {exp.to === null ? (
           " Now"
@@ -17,10 +17,10 @@ const Experience = ({ experience, deleteExperience }) => {
           <Moment format="YYYY/MM/DD">{exp.to}</Moment>
         )}
       </td>
-      <td>
+      <td className="p-4 text-left">
         <button
           onClick={() => deleteExperience(exp._id)}
-          className="btn btn-danger"
+          className="inline-block bg-danger text-white py-2 px-6 text-base border-none cursor-pointer transition-opacity duration-200 ease-in outline-none hover:opacity-80"
         >
           Delete
         </button>
@@ -30,13 +30,13 @@ const Experience = ({ experience, deleteExperience }) => {
 
   return (
     <Fragment>
-      <h2 className="my-2">Experience Credentials</h2>
-      <table className="table">
+      <h2 className="my-8 text-2xl font-bold">Experience Credentials</h2>
+      <table className="w-full">
         <thead>
-          <tr>
-            <th>Company</th>
-            <th className="hide-sm">Title</th>
-            <th className="hide-sm">Years</th>
+          <tr className="bg-light">
+            <th className="p-4 text-left">Company</th>
+            <th className="p-4 text-left hidden sm:table-cell">Title</th>
+            <th className="p-4 text-left hidden sm:table-cell">Years</th>
             <th />
           </tr>
         </thead>

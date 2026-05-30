@@ -4,7 +4,7 @@ const Spinner = () => (
   <React.Fragment>
     <img
       src="/img/spinner.gif"
-      style={{ width: "200px", margin: "auto", display: "block" }}
+      className="w-[200px] m-auto block"
       alt="Loading..."
     />
   </React.Fragment>
